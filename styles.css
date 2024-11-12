@@ -1,0 +1,187 @@
+:root {
+  --white: #fff;
+  --light-grey: #f5f6f7;
+  --dark-grey: #0c0c0c;
+  --yellow: #f1be32;
+  --golden-yellow: #feac32;
+}
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, .todo-app, .btn, .task-form, #title-input,
+#date-input, #description-input, #confirm-close-dialog {
+  background-color: var(--dark-grey); /* Color de fondo */
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1, p, label, .btn, #title-input,
+#date-input, #description-input {
+  /*Texto en tiza*/
+  background-image: url(tiza.jpg);
+  background-position: 50%;
+  background-clip: #ffffff;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+h1, p, label {
+  text-align: center;
+}
+h1 {
+  margin: 20px 0 40px 0;
+}
+.todo-app, .task-form, .btn,
+#confirm-close-dialog, .tarea  {
+  /*Borde en tiza 12px*/
+  border: 12px solid transparent;
+  border-image-source: url(tiza.png);
+  border-image-slice: 50;
+  border-image-repeat: stretch;
+  border-image-width: 12px;
+  border-radius: 8px;
+}
+.btn, #confirm-close-dialog {
+  /*Borde en tiza 8px*/
+  border-image-width: 8px;
+}
+.tarea {
+  /*Borde en tiza 8px*/
+  border-image-width: 5px;
+}
+.todo-app {
+  width: 300px;
+  height: 350px;
+  padding: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn {
+  cursor: pointer;
+  width: 100px;
+  margin: 10px;
+}
+.btn:hover {
+  transform: scale(120%);
+}
+.large-btn {
+  width: 80%;
+  font-size: 1.2rem;
+  align-self: center;
+  justify-self: center;
+}
+.close-task-form-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.close-icon {
+  width: 20px;
+  height: 20px;
+}
+.task-form {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  width: 300px;
+  height: 350px;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+}
+/* Otros estilos de formulario */
+.task-form-header {
+  display: flex;
+  justify-content: flex-end;
+}
+.task-form-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.task-form-footer {
+  display: flex;
+  justify-content: center;
+}
+.task-form-label, #title-input, #date-input, #description-input {
+  display: block;
+}
+.task-form-label {
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+#title-input, #date-input, #description-input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 2px;
+  font-weight: 700;
+}
+::-webkit-calendar-picker-indicator {
+  display: none;
+}
+#confirm-close-dialog {
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 15px;
+}
+.confirm-close-dialog-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.discard-message-text {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+#tasks-container {
+  height: 100%;
+  overflow-y: auto; /* Permite desplazamiento si hay muchas tareas */
+}
+.task {
+  margin: 5px 0;
+}
+.hidden {
+  display: none;
+}
+.tarea {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+  /* Estilos para pantallas más grandes */
+@media (min-width: 576px) {
+  .todo-app,
+  .task-form {
+    width: 400px;
+    height: 450px;
+  }
+  .task-form-label {
+    font-size: 1.5rem;
+  }
+  #title-input,
+  #date-input {
+    height: 2rem;
+  }
+  #title-input,
+  #date-input,
+  #description-input {
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+}
